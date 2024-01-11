@@ -21,7 +21,7 @@ def home():
     return ''
 
 @app.route('/restaurants')
-def get_restaurants(): #gets all restaurants
+def get_restaurants(): 
     restaurants =[]
 
     for restaurant in Restaurant.query.all():
@@ -81,10 +81,9 @@ def get_restaurant_byID(id):
                 200
             )
             return response
-
- # use Flask-restful for pizza and restaurantpizza routes     
+     
 class Pizzas(Resource):
-    def get(self): # all pizzas
+    def get(self): 
         pizza = [pizz.to_dict() for pizz in Pizza.query.all()]
 
         response = make_response(jsonify(pizza),200)
